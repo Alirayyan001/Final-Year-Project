@@ -1,0 +1,90 @@
+.topup-approved-container {
+    padding: 20px;
+    background-color: #f0f8ff;
+    font-family: 'Arial', sans-serif;
+}
+
+.back-icon {
+    font-size: 24px;
+    color: orange;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+.topup-approved-heading {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.topup-approved-count {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.total-revenue {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.topup-approved-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.topup-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(33.333% - 20px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.topup-card h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.topup-card p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.user-id {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.user-id:hover {
+    text-decoration: underline;
+}
+
+.topup-amount {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    .topup-card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .topup-card {
+        width: 100%;
+    }
+}

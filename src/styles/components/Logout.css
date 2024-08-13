@@ -1,0 +1,15 @@
+/* src/styles/components/Logout.css */
+.logout-container {
+    width: 735px;
+  padding : 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+    background-color: white;
+}
+
+h2 {
+    margin-bottom: 20px;
+}

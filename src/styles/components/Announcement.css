@@ -1,0 +1,106 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.announcement-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ececec 0%, #f5f5f5 100%);
+}
+
+.announcement-content {
+    background-color: #fff;
+    padding: 40px 60px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 1000px;
+    width: 90%;
+}
+
+.announcement-logo {
+
+        border-radius: 20px;
+        width: 320px;
+        margin-bottom: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #444;
+    font-weight: 600;
+}
+
+.announcement-buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.announcement-button {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.announcement-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.announcement-button h3 {
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.announcement-button button {
+    font-size: 14px;
+    padding: 10px 20px;
+    background-color: #ffa500;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.announcement-button button:hover {
+    background-color: #e59400;
+}
+
+.announcement-back-icon {
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size: 1.5em;
+    color: #ffa500;
+    transition: color 0.3s;
+}
+
+.announcement-back-icon:hover {
+    color: #e59400;
+}

@@ -1,0 +1,155 @@
+.topup-approval-container {
+    padding: 20px;
+    background-color: #f4f7fa;
+    font-family: 'Arial', sans-serif;
+}
+
+.back-icon {
+    font-size: 24px;
+    color: orange;
+    cursor: pointer;
+}
+
+.topup-approval-heading {
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.topup-approval-count {
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.topup-approval-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    /* Reduced gap for better alignment */
+}
+
+.topup-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    width: calc(23.333% - 10px);
+    /* Adjusted width */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.topup-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.topup-card h3 {
+    margin-top: 0;
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.topup-card p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.topup-card .topup-amount {
+    color: #d9534f;
+    /* Bootstrap danger color */
+}
+
+.user-id {
+    color: #007bff;
+    /* Bootstrap primary color */
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.user-id:hover {
+    color: #0056b3;
+    /* Darker shade of primary color */
+}
+
+.action-buttons {
+    margin-right: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.approve-button,
+.decline-button {
+    padding: 10px 50px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.approve-button {
+    background-color: #5cb85c;
+    /* Bootstrap success color */
+    color: #fff;
+}
+
+.approve-button:hover {
+    background-color: #4cae4c;
+    /* Darker shade of success color */
+}
+
+.decline-button {
+    background-color: #d9534f;
+    /* Bootstrap danger color */
+    color: #fff;
+}
+
+.decline-button:hover {
+    background-color: #c9302c;
+    /* Darker shade of danger color */
+}
+
+@media (max-width: 1024px) {
+    .topup-card {
+        width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .topup-card {
+        width: calc(100% - 10px);
+    }
+}
+/* Existing CSS ... */
+
+.topup-card {
+    position: relative;
+    /* Existing styles ... */
+}
+
+.delete-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: red;
+    cursor: pointer;
+    display: none;
+    /* Ensure the icon is hidden by default */
+}
+
+.topup-card:hover .delete-icon {
+    display: block;
+    /* Show the icon on hover */
+}
+
+/* Ensure other styles remain the same */
