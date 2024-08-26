@@ -86,7 +86,7 @@ const UserManagement = () => {
               <td>{user.fullname}</td>
               <td>{user.mobile}</td>
               <td>{user.email}</td>
-              <td>{user.walletBalance}</td>
+              <td>{`Rs.${user.balance}`}</td> {/* Format balance */}
               <td>
                 <button onClick={() => handleDelete(user._id)} className="delete-button">Delete</button>
               </td>
