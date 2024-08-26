@@ -9,12 +9,9 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb://localhost:27017/EZ-TRANSIT', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect('mongodb://localhost:27017/EZ-TRANSIT')
   .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+  .catch(err => console.error(err));
 
 // Define User schema and model
 const userSchema = new mongoose.Schema({
@@ -30,24 +27,17 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Define Announcement schema and model
+// Define Announcement schema and model with automatic timestamps
 const announcementSchema = new mongoose.Schema({
   title: String,
   content: String,
-  date: {
-    type: Date,
-    default: () => moment().tz('Asia/Karachi').toDate()
-  }
-});
+}, { timestamps: true });  // This will automatically add `createdAt` and `updatedAt` fields
 
 const Announcement = mongoose.model('Announcement', announcementSchema);
 
 // Define Top-up schema and model
 const topupSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
-  },
+  userId: mongoose.Schema.Types.ObjectId,
   accountType: String,
   accountNumber: Number,
   amount: Number,
@@ -117,7 +107,7 @@ app.delete('/api/announcements/:id', async (req, res) => {
 // API routes for top-up requests
 app.get('/api/topups', async (req, res) => {
   try {
-    const topups = await Topup.find().populate('userId');
+    const topups = await Topup.find();
     res.json(topups);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -137,22 +127,8 @@ app.delete('/api/topups/:id', async (req, res) => {
 app.post('/api/topups/:id/approve', async (req, res) => {
   try {
     const topup = await Topup.findByIdAndUpdate(req.params.id, { status: 'approved' }, { new: true });
-    
-    if (topup) {
-      const user = await User.findById(topup.userId);
-      
-      if (user) {
-        user.walletBalance += topup.amount;
-        await user.save();
-        res.json(topup);
-      } else {
-        res.status(404).json({ message: 'User not found' });
-      }
-    } else {
-      res.status(404).json({ message: 'Top-up request not found' });
-    }
+    res.json(topup);
   } catch (error) {
-    console.error('Error approving top-up request:', error);
     res.status(500).json({ message: 'Error approving top-up request', error });
   }
 });
@@ -162,27 +138,24 @@ app.post('/api/topups/:id/decline', async (req, res) => {
     const topup = await Topup.findByIdAndUpdate(req.params.id, { status: 'declined' }, { new: true });
     res.json(topup);
   } catch (error) {
-    console.error('Error declining top-up request:', error);
     res.status(500).json({ message: 'Error declining top-up request', error });
   }
 });
 
 app.get('/api/topups/approved', async (req, res) => {
   try {
-    const topups = await Topup.find({ status: 'approved' }).populate('userId');
+    const topups = await Topup.find({ status: 'approved' });
     res.json(topups);
   } catch (error) {
-    console.error('Error fetching approved top-up requests:', error);
     res.status(500).json({ message: 'Error fetching approved top-up requests', error });
   }
 });
 
 app.get('/api/topups/declined', async (req, res) => {
   try {
-    const topups = await Topup.find({ status: 'declined' }).populate('userId');
+    const topups = await Topup.find({ status: 'declined' });
     res.json(topups);
   } catch (error) {
-    console.error('Error fetching declined top-up requests:', error);
     res.status(500).json({ message: 'Error fetching declined top-up requests', error });
   }
 });

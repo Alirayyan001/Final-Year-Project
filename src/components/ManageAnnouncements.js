@@ -1,9 +1,9 @@
-// ManageAnnouncements.js
-
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/components/Dashboard.css';
+import '../styles/components/ManageAnnouncements.css';
 
 const ManageAnnouncements = () => {
   const [announcements, setAnnouncements] = useState([]);
@@ -51,13 +51,20 @@ const ManageAnnouncements = () => {
   return (
     <div className="dashboard-container">
       <div className="dashboard-content">
-        <button onClick={handleBackClick} className="back-to-menu-button">Back</button>
+        <FontAwesomeIcon 
+          icon={faArrowLeft} 
+          onClick={handleBackClick} 
+          className="back-icon"
+        />
         <h2>Manage Announcements</h2>
         <div className="announcement-list">
           {announcements.map((announcement) => (
             <div key={announcement._id} className="announcement-item">
               <h3>{announcement.title}</h3>
-              <p>{announcement.content}</p>
+              <p className="announcement-content">{announcement.content}</p>
+              <p className="announcement-date">
+                Added on: {new Date(announcement.createdAt).toLocaleDateString()} at {new Date(announcement.createdAt).toLocaleTimeString()}
+              </p>
               <button className="delete-button" onClick={() => openDeleteDialog(announcement._id)}>Delete</button>
             </div>
           ))}

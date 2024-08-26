@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/components/Dashboard.css';
+import '../styles/components/AddAnnouncement.module.css';
+
 
 const AddAnnouncement = () => {
   const [title, setTitle] = useState('');

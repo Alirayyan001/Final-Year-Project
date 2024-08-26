@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/images/logo.png';
-import '../styles/components/Login.css';
+import '../styles/components/Loginpage.css';
 
 const Login = () => {
   const navigate = useNavigate();
